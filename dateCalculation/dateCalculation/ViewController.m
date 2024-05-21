@@ -1,34 +1,10 @@
-# FGDateCalculateTool
+//
+//  ViewController.m
+//  dateCalculation
+//
+//  Created by fengur on 2024/5/21.
+//
 
-FGDateCalculateTool是一个用于格式化时间戳的工具类，根据一定的规则将时间戳转换为特定的日期格式。
-
-## 使用方法
-
-1. 将`FGDateCalculateTool.h`和`FGDateCalculateTool.m`文件添加到您的Objective-C项目中。
-
-2. 在需要使用的地方导入头文件： #import "FGDateCalculateTool.h"
-
-3. 调用formattedTimeStrWithTimeInterval:方法来格式化时间戳：
-
-```
-NSTimeInterval useTime = 1621576800; // 示例时间戳
-NSString *formattedTimeStr = [FGDateCalculateTool formattedTimeStrWithTimeInterval:useTime];
-NSLog(@"Formatted Time: %@", formattedTimeStr);
-```
-4. 工程内也提供了swift方法可供使用 并有示例
-## 规则说明
-FGDateCalculateTool根据以下规则对时间戳进行格式化：
-
- - 异常数据，已经大于当前时间的时间戳直接显示年月日。
- - 如果时间戳在当前年份内：
-    - 如果时间戳是今天，则显示小时和分钟（HH:mm）。
-    - 如果时间戳是昨天，则显示"昨天"和小时分钟（昨天 HH:mm）。
-    - 如果时间戳在过去的一周内，则显示星期几（例如：星期一、星期二）。
-    - 如果时间戳在过去的一周之外但在当前年份内，则显示月份和日期（M-d）。
-- 如果时间戳不在当前年份内，则显示完整的年月日（yyyy/MM/dd）。
-
-## 示例
-```
 #import "ViewController.h"
 #import "dateCalculation-Swift.h"
 #import "FGDateCalculateTool.h"
@@ -84,23 +60,5 @@ FGDateCalculateTool根据以下规则对时间戳进行格式化：
         NSLog(@"Swift Formatted Date: %@", formattedDate);
     }
 }
-```
-Logcat:
-```
-OC Formatted Date: 2024/05/22
-OC Formatted Date: 16:22
-OC Formatted Date: 14:22
-OC Formatted Date: 昨天 17:22
-OC Formatted Date: Sunday
-OC Formatted Date: 5-13
-OC Formatted Date: 2023/05/21
 
-Swift Formatted Date: 2024/05/22
-Swift Formatted Date: 16:22
-Swift Formatted Date: 14:22
-Swift Formatted Date: 昨天 17:22
-Swift Formatted Date: Sunday
-Swift Formatted Date: 5-13
-Swift Formatted Date: 2023/5/21
-```
-## MIT
+@end
